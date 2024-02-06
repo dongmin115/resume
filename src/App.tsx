@@ -3,7 +3,7 @@ function App() {
     <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%]">
       <div className="w-full">
       <p className='justify-start w-full text-2xl'>Resume</p>
-      <div className="divider"/>
+      <div className="divider divider-primary"/>
       </div>
       <div className="card w-96 h-[70%] glass">
         <figure><img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="car!"/></figure>
