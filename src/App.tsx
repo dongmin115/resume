@@ -33,7 +33,7 @@ function App() {
             <li className="step">Receive Product</li>
           </ul>
         </div> */}
-        <div className="grow h-[90%] pl-[5%]">
+        <div className="flex flex-col grow h-[90%] pl-[5%] justify-start">
           <h1 className="font-semibold text-3xl">Introduce</h1>
           <div className="divider"/>
           <div className="mb-2 flex flex-col space-y-2">
@@ -44,7 +44,7 @@ function App() {
             <p className="text-md">이루고싶은 것</p>
             <p className="text-md">현재하고있는 노력</p>
           </div>
-          <ul className="flex flex-col space-y-1 w-fit">
+          <ul className="flex flex-col space-y-1 w-fit mt-auto">
             <li className="flex flex-row"><div className="mr-1">📧</div><a href="https://github.com/dongmin115" className="underline font-medium">dongmin11566@gmail.com</a></li>
             <li className="flex flex-row"><div className="mr-1">🐱</div><a href="https://github.com/dongmin115" className="underline font-medium">GitHub</a></li>
             <li className="flex flex-row"><div className="mr-1">📘</div><a href="https://velog.io/@dongmin115/posts" className="underline font-medium">Blog</a></li>
