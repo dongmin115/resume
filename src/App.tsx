@@ -1,13 +1,20 @@
+import AOS from 'aos';
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    AOS.init();
+  })
+
   return (
     <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
       <div className="w-full">
-      <p className='justify-start w-full text-4xl'>Resume</p>
+      <p className='justify-start w-full text-4xl font-bold'>Resume</p>
       <div className="divider divider-primary"/>
       </div>
       <div className="w-full flex flex-row h-full items-center">
-        <div className="card w-96 h-[90%] glass shrink-0">
-          <figure><img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="car!"/></figure>
+        <div className="card w-96 h-[90%] glass shrink-0" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+          <figure><img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="profile"/></figure>
           <div className="card-body">
             <h2 className="card-title">Front-End Developer</h2>
             <p>Dongmin Lim</p>
@@ -37,7 +44,7 @@ function App() {
             <p className="text-md">이루고싶은 것</p>
             <p className="text-md">현재하고있는 노력</p>
           </div>
-          <ul className="flex flex-col space-y-1">
+          <ul className="flex flex-col space-y-1 w-fit">
             <li className="flex flex-row"><div className="mr-1">📧</div><a href="https://github.com/dongmin115" className="underline font-medium">dongmin11566@gmail.com</a></li>
             <li className="flex flex-row"><div className="mr-1">🐱</div><a href="https://github.com/dongmin115" className="underline font-medium">GitHub</a></li>
             <li className="flex flex-row"><div className="mr-1">📘</div><a href="https://velog.io/@dongmin115/posts" className="underline font-medium">Blog</a></li>
