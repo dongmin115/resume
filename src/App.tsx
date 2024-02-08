@@ -2,11 +2,11 @@ function App() {
   return (
     <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
       <div className="w-full">
-      <p className='justify-start w-full text-2xl'>Resume</p>
+      <p className='justify-start w-full text-4xl'>Resume</p>
       <div className="divider divider-primary"/>
       </div>
       <div className="w-full flex flex-row h-full items-center">
-        <div className="card w-96 h-[90%] glass">
+        <div className="card w-96 h-[90%] glass shrink-0">
           <figure><img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="car!"/></figure>
           <div className="card-body">
             <h2 className="card-title">Front-End Developer</h2>
@@ -27,12 +27,20 @@ function App() {
           </ul>
         </div> */}
         <div className="grow h-[90%] pl-[5%]">
-          <h1 className="font-semibold text-2xl">Introduce</h1>
+          <h1 className="font-semibold text-3xl">Introduce</h1>
           <div className="divider"/>
+          <div className="mb-2 flex flex-col space-y-2">
+            <h1 className="text-2xl mb-4">안녕하세요, 웹 프론트엔드 개발자 임동민입니다.</h1>
+            <p className="text-md">신입 프론트엔드 개발자입니다.</p>
+            <p className="text-md">개발자 직무를 선택한 이유</p>
+            <p className="text-md">개발자로써의 성격적 장점 어필</p>
+            <p className="text-md">이루고싶은 것</p>
+            <p className="text-md">현재하고있는 노력</p>
+          </div>
           <ul className="flex flex-col space-y-1">
             <li className="flex flex-row"><div className="mr-1">📧</div><a href="https://github.com/dongmin115" className="underline font-medium">dongmin11566@gmail.com</a></li>
             <li className="flex flex-row"><div className="mr-1">🐱</div><a href="https://github.com/dongmin115" className="underline font-medium">GitHub</a></li>
-            <li className="flex flex-row"><div className="mr-1">📘</div><a href="https://github.com/dongmin115" className="underline font-medium">Blog</a></li>
+            <li className="flex flex-row"><div className="mr-1">📘</div><a href="https://velog.io/@dongmin115/posts" className="underline font-medium">Blog</a></li>
           </ul>
         </div>
       </div>
