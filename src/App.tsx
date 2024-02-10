@@ -1,13 +1,15 @@
 import AOS from 'aos';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Title from './components/title';
 
 function App() {
+  const [pages,setPages] = useState(0);
   useEffect(() => {
     AOS.init();
   })
-
   return (
-    <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
+    ( pages === 0 ? <Title/> : (
+      <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
       <div className="w-full">
       <p className='justify-start w-full text-4xl font-bold'>Resume</p>
       <div className="divider divider-primary"/>
@@ -52,6 +54,8 @@ function App() {
         </div>
       </div>
     </div>
+    ))
+    
   )
 }
 
