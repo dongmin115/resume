@@ -37,10 +37,12 @@ export default function Introduce(){
           <p className="text-md">이루고싶은 것</p>
           <p className="text-md">현재하고있는 노력</p>
         </div>
-        <ul className="flex flex-col space-y-1 w-fit mt-auto">
+        <ul className="flex flex-col space-y-1 mt-auto w-fit">
           <li className="flex flex-row"><div className="mr-1">📧</div><a href="https://github.com/dongmin115" className="underline font-medium">dongmin11566@gmail.com</a></li>
           <li className="flex flex-row"><div className="mr-1">🐱</div><a href="https://github.com/dongmin115" className="underline font-medium">GitHub</a></li>
           <li className="flex flex-row"><div className="mr-1">📘</div><a href="https://velog.io/@dongmin115/posts" className="underline font-medium">Blog</a></li>
+          <li className="flex flex-row"><div className="mr-1">📞</div>010-XXXX-XXXX</li>
+          <li className="flex flex-row"><div className="mr-1">🎂</div>2001.XX.XX</li>
         </ul>
       </div>
     </div>
