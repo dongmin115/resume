@@ -1,11 +1,12 @@
 export default function Introduce(){
-    return (<div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
+    return (
+    <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]">
     <div className="w-full">
     <p className='justify-start w-full text-4xl font-bold'>Resume</p>
     <div className="divider divider-primary"/>
     </div>
     <div className="w-full flex flex-row h-full items-center">
-      <div className="card w-96 h-[90%] glass shrink-0" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+      <div className="card w-[30%] h-[90%] glass shrink-0" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
         <figure><img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="profile"/></figure>
         <div className="card-body">
           <h2 className="card-title">Front-End Developer</h2>

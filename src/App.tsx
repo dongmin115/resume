@@ -4,13 +4,15 @@ import Title from './components/title';
 import Introduce from './components/introduce';
 
 function App() {
-  const [pages,setPages] = useState(0);
+
   useEffect(() => {
     AOS.init();
   })
   return (
-    ( pages === 0 ? <Title/> : <Introduce/>)
-    
+    <div className='overflow-x-hidden'>
+     <Title/>
+     <Introduce/>
+    </div>
   )
 }
 
