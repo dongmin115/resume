@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 export default function Title(){
 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [introVisible, setIntroVisible] = useState(false);
+    const [scaleFactor, setScaleFactor] = useState(1);
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
         var colors = new Array(
@@ -80,7 +82,21 @@ export default function Title(){
         document.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
+    // 스크롤 이벤트를 통해 특정 요소 확대
+    useEffect(() => {
+        function handleScroll() {
+            const scrollPosition = window.scrollY;
+            // 스크롤 위치에 따라 확대 비율 조절
+            const scaleFactor = 1 + (scrollPosition) / 1000; // 임의의 확대 비율을 계산합니다.
+            setScaleFactor(scaleFactor);
+        }
+        
+        window.addEventListener('scroll', handleScroll);
 
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <div id="gradient" className="w-screen h-screen flex flex-col justify-evenly items-center">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
@@ -95,14 +111,12 @@ export default function Title(){
                 pointerEvents: 'none',
                 opacity: '70%',
             }}/> */}
-            <p className="text-6xl font-bold">DongminLim</p>
-            <div className="mockup-browser bg-base-300 w-[70%] h-[70%]">
+            <div className="mockup-browser bg-base-300 w-[70%] h-[70%]" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
                 <div className="mockup-browser-toolbar">
                     <div className="input">https://dongminlim/resume.com</div>
                 </div>
-                <div className="flex justify-center bg-base-200 h-full items-center">Hello!</div>
+                <div className="flex justify-center bg-base-200 h-full items-center">Resume</div>
             </div>
-            <p className="text-2xl">Scroll Down</p>
         </div>
     )   
 }
