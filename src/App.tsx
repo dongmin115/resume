@@ -38,7 +38,6 @@ function App() {
   return (
     <div className='overflow-x-hidden'>
      <Title/>
-    <Introduce />
     </div>
   )
 }

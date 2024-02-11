@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import Introduce from "./introduce";
 
 export default function Title(){
 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [introVisible, setIntroVisible] = useState(false);
     const [scaleFactor, setScaleFactor] = useState(1);
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [showContent,setShowContent] = useState(true);
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
         var colors = new Array(
@@ -86,11 +89,17 @@ export default function Title(){
     useEffect(() => {
         function handleScroll() {
             const scrollPosition = window.scrollY;
+            setScrollPosition(scrollPosition);
             // 스크롤 위치에 따라 확대 비율 조절
             const scaleFactor = 1 + (scrollPosition) / 1000; // 임의의 확대 비율을 계산합니다.
             setScaleFactor(scaleFactor);
+            // 스크롤 값이 360이 되면 컨텐츠를 숨김
+            if (scrollPosition >= 1287 ) {
+                setShowContent(false);
+            } else {
+                setShowContent(true);
+            }
         }
-        
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -98,7 +107,8 @@ export default function Title(){
         };
     }, []);
     return (
-        <div id="gradient" className="w-screen h-screen flex flex-col justify-evenly items-center">        
+        <>
+        <div id="gradient" className="w-screen h-[150vh]">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
             <div id="gradient" className={`size-10 rounded-full`} 
             style={{
@@ -111,12 +121,18 @@ export default function Title(){
                 pointerEvents: 'none',
                 opacity: '70%',
             }}/> */}
-            <div className="mockup-browser bg-base-300 w-[70%] h-[70%]" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
-                <div className="mockup-browser-toolbar">
-                    <div className="input">https://dongminlim/resume.com</div>
+            {showContent && 
+            <div className="flex justify-center items-center h-screen">
+                <div className="mockup-browser bg-base-300 w-[70%] h-[70%]" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
+                    <div className="mockup-browser-toolbar">
+                        <div className="input">https://dongminlim/resume.com</div>
+                    </div>
+                    <div className="flex justify-center bg-base-200 h-full items-center">Resume</div>
                 </div>
-                <div className="flex justify-center bg-base-200 h-full items-center">Resume</div>
             </div>
+            }
         </div>
+        { scrollPosition >= 360 && <Introduce/>}
+        </>
     )   
 }
