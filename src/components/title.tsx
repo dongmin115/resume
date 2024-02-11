@@ -8,6 +8,7 @@ export default function Title(){
     const [scaleFactor, setScaleFactor] = useState(1);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
+    const [showContent2,setShowContent2] = useState(true);
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
         var colors = new Array(
@@ -93,7 +94,12 @@ export default function Title(){
             // 스크롤 위치에 따라 확대 비율 조절
             const scaleFactor = 1 + (scrollPosition) / 1000; // 임의의 확대 비율을 계산합니다.
             setScaleFactor(scaleFactor);
-            // 스크롤 값이 360이 되면 컨텐츠를 숨김
+
+            if (scrollPosition >= 549 ) {
+                setShowContent2(false);
+            } else {
+                setShowContent2(true);
+            }
             if (scrollPosition >= 1287 ) {
                 setShowContent(false);
             } else {
@@ -127,7 +133,7 @@ export default function Title(){
                     <div className="mockup-browser-toolbar">
                         <div className="input">https://dongminlim/resume.com</div>
                     </div>
-                    <div className="flex justify-center bg-base-200 h-full items-center">Resume</div>
+                    {showContent2 && <div className="flex justify-center bg-base-200 h-full items-center">Resume</div> }
                 </div>
             </div>
             }
