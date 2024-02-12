@@ -3,8 +3,8 @@ import Introduce from "./introduce";
 
 export default function Title(){
 
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [introVisible, setIntroVisible] = useState(false);
+    // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    // const [introVisible, setIntroVisible] = useState(false);
     const [scaleFactor, setScaleFactor] = useState(1);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
@@ -73,19 +73,19 @@ export default function Title(){
         updateGradient();
     },[])
     //마우스 커서를 따라다님
-    useEffect(() => {
-        const handleMouseMove = (event:any) => {
-        setMousePosition({ x: event.clientX, y: event.clientY });
-        };
+    // useEffect(() => {
+    //     const handleMouseMove = (event:any) => {
+    //     setMousePosition({ x: event.clientX, y: event.clientY });
+    //     };
 
-        // 이벤트 리스너 등록
-        document.addEventListener('mousemove', handleMouseMove);
+    //     // 이벤트 리스너 등록
+    //     document.addEventListener('mousemove', handleMouseMove);
 
-        // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-        return () => {
-        document.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
+    //     // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+    //     return () => {
+    //     document.removeEventListener('mousemove', handleMouseMove);
+    //     };
+    // }, []);
     // 스크롤 이벤트를 통해 특정 요소 확대
     useEffect(() => {
         function handleScroll() {
@@ -129,11 +129,32 @@ export default function Title(){
             }}/> */}
             {showContent && 
             <div className="flex justify-center items-center h-screen">
-                <div className="mockup-browser bg-base-300 w-[70%] h-[70%]" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
+                <div className="mockup-browser bg-base-300 w-[70%] h-[70%] shadow-2xl" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
                     <div className="mockup-browser-toolbar">
                         <div className="input">https://dongminlim/resume.com</div>
                     </div>
-                    {showContent2 && <div className="flex justify-center bg-base-200 h-full items-center">Resume</div> }
+                    {showContent2 && (
+                    <div className="flex bg-base-200 h-[91%] items-center flex-col px-[10%] pt-[5%]">
+                        <p className='justify-start w-full text-2xl font-bold'>Resume</p>
+                        <div className="divider divider-primary"/>
+                        <div className="flex flex-row w-full h-[75%] mb-auto">
+                        <div className="skeleton w-2/5 h-full shrink-0"/>
+                        <div className="flex flex-col h-full w-[55%] space-y-4 ml-auto">
+                            <div className="skeleton w-[45%] h-[9%] mb-1"/>
+                            <div className="skeleton w-full h-[7%]"/>
+                            <div className="skeleton w-full h-[7%]"/>
+                            <div className="skeleton w-full h-[7%]"/>
+                            <div className="skeleton w-full h-[7%]"/>
+                            <div className="skeleton w-[70%] h-[7%]"/>
+                            <div className="flex flex-col w-full h-1/3 space-y-3 justify-end">
+                            <div className="skeleton w-[40%] h-[13%]"/>
+                            <div className="skeleton w-[40%] h-[13%]"/>
+                            <div className="skeleton w-[40%] h-[13%]"/>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    )}
                 </div>
             </div>
             }
