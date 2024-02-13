@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Introduce from "./introduce";
+import Strength from "./Strength";
 
-export default function Title(){
+export default function Main(){
 
     // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     // const [introVisible, setIntroVisible] = useState(false);
@@ -160,6 +161,7 @@ export default function Title(){
             }
         </div>
         { scrollPosition >= 360 && <Introduce/>}
+        <Strength/>
         </>
     )   
 }
