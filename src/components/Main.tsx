@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Introduce from "./introduce";
+import Introduce from "./Introduce";
 import Strength from "./Strength";
 
 export default function Main(){
