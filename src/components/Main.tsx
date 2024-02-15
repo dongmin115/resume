@@ -161,7 +161,7 @@ export default function Main(){
             }
         </div>
         { scrollPosition >= 360 && <Introduce/>}
-        <Strength/>
+        { scrollPosition >= 720 && <Strength/>}
         </>
     )   
 }
