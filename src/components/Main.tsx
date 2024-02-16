@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
-import Strength from "./Strength";
+import Tech from "./Tech";
 
 export default function Main(){
 
@@ -131,7 +131,7 @@ export default function Main(){
         };
     }, []);
     return (
-        <>
+        <div className="w-screen h-[300vh]">
         <div id="gradient" className="w-screen h-screen">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
             <div id="gradient" className={`size-10 rounded-full`} 
@@ -178,7 +178,7 @@ export default function Main(){
         <div id="introduce">
             {showIntroduce && <Introduce/>}
         </div>
-        {/* <Strength/> */}
-        </>
+        <Tech/>
+        </div>
     )   
 }
