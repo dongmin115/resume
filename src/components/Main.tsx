@@ -5,13 +5,11 @@ import Strength from "./Strength";
 export default function Main(){
 
     // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    // const [introVisible, setIntroVisible] = useState(false);
     const [scaleFactor, setScaleFactor] = useState(1);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
-    const [showContent2,setShowContent2] = useState(true);
     const [showIntroduce, setShowIntroduce] = useState(false);
-    const component2Ref = useRef<HTMLDivElement>(null);
+
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
         var colors = new Array(
@@ -90,41 +88,51 @@ export default function Main(){
     //     };
     // }, []);
     
-    
     useEffect(() => {
         const gradient = document.getElementById('gradient');
-        // const introduce = document.getElementById('introduce');
+        const introduce = document.getElementById('introduce');
     
-        var observer = new IntersectionObserver((e)=> {
-            console.log(e);
-            if(e[0].isIntersecting){                    //gradient가 화면에 보일 때 content를 확대
-                // 스크롤 이벤트를 통해 특정 요소 확대
-                function handleScroll() {
-                const scrollPosition = window.scrollY;
-                setScrollPosition(scrollPosition);
-
-                // 확대 비율 조절
-                const maxScaleFactor = 1.4;
-                const scaleFactor = Math.min(1 + (scrollPosition) / 1000, maxScaleFactor);
-                setScaleFactor(scaleFactor);
-            }
-            window.addEventListener('scroll', handleScroll);
-
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-            }
+        // Intersection Observer 콜백 함수
+        var observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.target.id === 'gradient' && entry.isIntersecting) {
+                    // gradient가 화면에 보일 때
+                    setShowContent(true);
+                    setShowIntroduce(false);
+                } else if (entry.target.id === 'gradient' && !entry.isIntersecting) {
+                    // introduce가 화면에 보일 때
+                    setShowContent(false);
+                    setShowIntroduce(true);
+                }
             });
-            
-            
-        // 주시 시작
+        });
+    
+        // 각 요소를 주시
         observer.observe(gradient!);
-        // observer.observe(introduce!);
-      },[])
-
+        observer.observe(introduce!);
+    
+        // 스크롤 이벤트 핸들러
+        function handleScroll() {
+            const scrollPosition = window.scrollY;
+            setScrollPosition(scrollPosition);
+            // 확대 비율 조절
+            const maxScaleFactor = 1.4;
+            const scaleFactor = Math.min(1 + (scrollPosition) / 3000, maxScaleFactor);
+            setScaleFactor(scaleFactor);
+        }
+    
+        // 스크롤 이벤트 리스너 등록
+        window.addEventListener('scroll', handleScroll);
+    
+        // 언마운트 시 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            observer.disconnect();
+        };
+    }, []);
     return (
         <>
-        <div id="gradient" className="w-screen h-[150vh]">        
+        <div id="gradient" className="w-screen h-screen">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
             <div id="gradient" className={`size-10 rounded-full`} 
             style={{
@@ -143,7 +151,6 @@ export default function Main(){
                     <div className="mockup-browser-toolbar">
                         <div className="input">https://dongminlim/resume.com</div>
                     </div>
-                    {showContent2 && (
                     <div className="flex bg-base-200 h-[91%] items-center flex-col px-[10%] pt-[5%]">
                         <p className='justify-start w-full text-2xl font-bold'>Resume</p>
                         <div className="divider divider-primary"/>
@@ -164,7 +171,6 @@ export default function Main(){
                         </div>
                         </div>
                     </div>
-                    )}
                 </div>
             </div>
             }
