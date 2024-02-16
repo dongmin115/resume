@@ -1,6 +1,6 @@
 export default function Introduce(){
     return (
-    <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="300">
+    <div className="w-screen flex flex-col justify-evenly h-screen items-center px-[10%] py-[5%]" data-aos="zoom-in" data-aos-duration="500">
     <div className="w-full">
     <p className='justify-start w-full text-4xl font-bold'>Resume</p>
     <div className="divider divider-primary"/>
