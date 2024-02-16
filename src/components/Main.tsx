@@ -10,6 +10,8 @@ export default function Main(){
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
     const [showContent2,setShowContent2] = useState(true);
+    const [showIntroduce, setShowIntroduce] = useState(false);
+    const component2Ref = useRef<HTMLDivElement>(null);
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
         var colors = new Array(
@@ -87,32 +89,39 @@ export default function Main(){
     //     document.removeEventListener('mousemove', handleMouseMove);
     //     };
     // }, []);
-    // 스크롤 이벤트를 통해 특정 요소 확대
+    
+    
     useEffect(() => {
-        function handleScroll() {
-            const scrollPosition = window.scrollY;
-            setScrollPosition(scrollPosition);
-            // 스크롤 위치에 따라 확대 비율 조절
-            const scaleFactor = 1 + (scrollPosition) / 1000; // 임의의 확대 비율을 계산합니다.
-            setScaleFactor(scaleFactor);
+        const gradient = document.getElementById('gradient');
+        // const introduce = document.getElementById('introduce');
+    
+        var observer = new IntersectionObserver((e)=> {
+            console.log(e);
+            if(e[0].isIntersecting){                    //gradient가 화면에 보일 때 content를 확대
+                // 스크롤 이벤트를 통해 특정 요소 확대
+                function handleScroll() {
+                const scrollPosition = window.scrollY;
+                setScrollPosition(scrollPosition);
 
-            if (scrollPosition >= 549 ) {
-                setShowContent2(false);
-            } else {
-                setShowContent2(true);
+                // 확대 비율 조절
+                const maxScaleFactor = 1.4;
+                const scaleFactor = Math.min(1 + (scrollPosition) / 1000, maxScaleFactor);
+                setScaleFactor(scaleFactor);
             }
-            if (scrollPosition >= 1287 ) {
-                setShowContent(false);
-            } else {
-                setShowContent(true);
-            }
-        }
-        window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+            }
+            });
+            
+            
+        // 주시 시작
+        observer.observe(gradient!);
+        // observer.observe(introduce!);
+      },[])
+
     return (
         <>
         <div id="gradient" className="w-screen h-[150vh]">        
@@ -160,8 +169,10 @@ export default function Main(){
             </div>
             }
         </div>
-        { scrollPosition >= 360 && <Introduce/>}
-        { scrollPosition >= 720 && <Strength/>}
+        <div id="introduce">
+            {showIntroduce && <Introduce/>}
+        </div>
+        {/* <Strength/> */}
         </>
     )   
 }
