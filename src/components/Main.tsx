@@ -147,7 +147,7 @@ export default function Main(){
             }}/> */}
             {showContent && 
             <div className="flex justify-center items-center h-screen">
-                <div className="mockup-browser bg-base-300 w-[70%] h-[70%] shadow-2xl" style={{position: 'fixed', transform: `scale(${scaleFactor})` }}>
+                <div className="mockup-browser bg-base-300 w-[70%] h-[70%] shadow-2xl" style={{position: 'fixed', transform: `scale(${scaleFactor})` }} data-aos="zoom-out" data-aos-duration="500" data-aos-easing="linear">
                     <div className="mockup-browser-toolbar">
                         <div className="input">https://dongminlim/resume.com</div>
                     </div>
