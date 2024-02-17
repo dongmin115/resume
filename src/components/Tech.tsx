@@ -36,7 +36,7 @@ export default function Tech() {
     }
 
     function createCircle() {
-        if(circles.length < 20){
+        if(circles.length < 60){
         const x = Math.random() * canvas.width;
         const y = canvas.height + Math.random() * canvas.height;
         const radius = Math.random() * 1 + 5;
@@ -60,7 +60,7 @@ export default function Tech() {
     },[])
     return (
         <div className="w-screen h-screen">
-            <canvas id="tech_canvas" className="fixed top-0 left-0 -z-10" />
+            <canvas id="tech_canvas" className="fixed w-full h-full inset-0 -z-10" />
             <div className="flex justify-between items-center w-full h-full flex-col">
                 <div className="text-5xl basis-[10%] w-fit items-center flex justify-center">Tech</div>
                 <div className="w-full flex flex-col basis-[90%] justify-evenly items-center">
