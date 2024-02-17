@@ -9,6 +9,7 @@ export default function Main(){
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
     const [showIntroduce, setShowIntroduce] = useState(false);
+    const [showTech, setShowTech] = useState(false);
 
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
@@ -91,6 +92,7 @@ export default function Main(){
     useEffect(() => {
         const gradient = document.getElementById('gradient');
         const introduce = document.getElementById('introduce');
+        const tech = document.getElementById('tech');
     
         // Intersection Observer 콜백 함수
         var observer = new IntersectionObserver((entries) => {
@@ -99,10 +101,12 @@ export default function Main(){
                     // gradient가 화면에 보일 때
                     setShowContent(true);
                     setShowIntroduce(false);
+                    setShowTech(false);
                 } else if (entry.target.id === 'gradient' && !entry.isIntersecting) {
                     // introduce가 화면에 보일 때
                     setShowContent(false);
                     setShowIntroduce(true);
+                    setShowTech(true);
                 }
             });
         });
@@ -110,6 +114,7 @@ export default function Main(){
         // 각 요소를 주시
         observer.observe(gradient!);
         observer.observe(introduce!);
+        observer.observe(tech!);
     
         // 스크롤 이벤트 핸들러
         function handleScroll() {
@@ -176,9 +181,11 @@ export default function Main(){
             }
         </div>
         <div id="introduce">
-            {showIntroduce && <Introduce/>}
+            { showIntroduce && <Introduce/> }
         </div>
-        <Tech/>
+        <div id="tech">
+            { showTech && <Tech/> }
+        </div>
         </div>
     )   
 }

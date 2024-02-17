@@ -16,16 +16,6 @@ export default function Introduce(){
           </div>
         </div>
       </div>
-      {/* <div className="w-[30%] items-center pl-[5%]">
-        <ul className="steps steps-vertical">
-          <li className="step step-primary">Register</li>
-          <li className="step step-primary">Choose plan</li>
-          <li className="step">Purchase</li>
-          <li className="step">Receive Product</li>
-          <li className="step">Receive Product</li>
-          <li className="step">Receive Product</li>
-        </ul>
-      </div> */}
       <div className="flex flex-col grow h-[90%] pl-[5%] justify-start">
         <h1 className="font-semibold text-3xl" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">Introduce</h1>
         <div className="divider" data-aos="fade-zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-back"/>
