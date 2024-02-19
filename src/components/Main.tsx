@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
 import Tech from "./Tech";
+import Thunder from "./Thunder";
 
 export default function Main(){
 
@@ -10,6 +11,7 @@ export default function Main(){
     const [showContent,setShowContent] = useState(true);
     const [showIntroduce, setShowIntroduce] = useState(false);
     const [showTech, setShowTech] = useState(false);
+    const [showThunder, setShowThunder] = useState(false);
 
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
@@ -93,6 +95,7 @@ export default function Main(){
         const gradient = document.getElementById('gradient');
         const introduce = document.getElementById('introduce');
         const tech = document.getElementById('tech');
+        const thunder = document.getElementById('thunder');
     
         // Intersection Observer 콜백 함수
         var observer = new IntersectionObserver((entries) => {
@@ -102,11 +105,13 @@ export default function Main(){
                     setShowContent(true);
                     setShowIntroduce(false);
                     setShowTech(false);
+                    setShowThunder(false);
                 } else if (entry.target.id === 'gradient' && !entry.isIntersecting) {
                     // introduce가 화면에 보일 때
                     setShowContent(false);
                     setShowIntroduce(true);
                     setShowTech(true);
+                    setShowThunder(true);
                 }
             });
         });
@@ -185,6 +190,9 @@ export default function Main(){
         </div>
         <div id="tech">
             { showTech && <Tech/> }
+        </div>
+        <div id="thunder">
+            { showThunder && <Thunder/> }
         </div>
         </div>
     )   

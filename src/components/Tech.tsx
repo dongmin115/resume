@@ -18,7 +18,7 @@ export default function Tech() {
     function drawCircle(x: number, y: number, radius: number) {
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.fillStyle = `rgba(255, 255, 255, 0.5)`;
       ctx.fill();
       ctx.closePath();
     }
@@ -38,9 +38,9 @@ export default function Tech() {
     function createCircle() {
         if(circles.length < 60){
         const x = Math.random() * canvas.width;
-        const y = canvas.height + Math.random() * canvas.height;
+        const y = Math.random() * canvas.height;
         const radius = Math.random() * 1 + 5;
-        const speed = Math.random() * 0.5;
+        const speed = Math.random() * 1 + 0.5;
         circles.push({ x, y, radius, speed });
         }
     }
