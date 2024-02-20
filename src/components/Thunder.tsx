@@ -5,6 +5,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 export default function Thunder() {
     
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
 
     useEffect(() => {
         //초기세팅
@@ -12,9 +13,9 @@ export default function Thunder() {
 
         const scene = new THREE.Scene();
 
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 10;
-
+        cameraRef.current = camera;
 
         const renderer = new THREE.WebGLRenderer({ canvas: canvas , antialias: true});
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -26,22 +27,6 @@ export default function Thunder() {
 
             scene.add( gltf.scene );
             console.log(gltf);
-            
-            // //모델 회전
-            // const initialRotation = new THREE.Euler(0, 0, 0, 'XYZ');
-            // gltf.scene.rotation.copy(initialRotation);
-            // // 모델의 회전을 갱신하는 함수입니다.
-            // function updateRotation() {
-            //     // 모델의 현재 회전 각도를 가져옵니다.
-            //     const currentRotation = gltf.scene.rotation.clone();
-
-            //     // x, y 축의 회전 각도를 더합니다.
-            //     currentRotation.x += 0.005;
-            //     currentRotation.y += 0.005;
-
-            //     // 모델의 회전 각도를 설정합니다.
-            //     gltf.scene.rotation.copy(currentRotation);
-            // }
             
 
         }, undefined, function ( error ) {
@@ -55,6 +40,20 @@ export default function Thunder() {
             renderer.render( scene, camera );
         }
         animate();
+
+        // 스크롤 이벤트 핸들러
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop;
+            cameraRef.current!.position.z = scrollTop * 0.01; // 스크롤 위치에 따라 카메라의 y 위치 변경
+        };
+
+        // 스크롤 이벤트 리스너 등록
+        window.addEventListener('scroll', handleScroll);
+
+        // 컴포넌트 언마운트 시 스크롤 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     },[])
     
     
