@@ -59,8 +59,8 @@ export default function Tech() {
     };
     },[])
     return (
-        <div className="w-screen h-screen">
-            <canvas id="tech_canvas" className="fixed w-full h-full inset-0 -z-10" />
+        <div className="w-screen h-screen overflow-hidden">
+            <canvas id="tech_canvas" className="w-full h-full inset-0 -z-10 fixed" />
             <div className="flex justify-between items-center w-full h-full flex-col">
                 <div className="text-5xl basis-[10%] w-fit items-center flex justify-center">Tech</div>
                 <div className="w-full flex flex-col basis-[90%] justify-evenly items-center">

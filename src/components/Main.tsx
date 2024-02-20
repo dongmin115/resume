@@ -112,7 +112,7 @@ export default function Main(){
                     setShowIntroduce(true);
                     setShowTech(true);
                     setShowThunder(true);
-                }
+                } 
             });
         });
     
@@ -141,7 +141,7 @@ export default function Main(){
         };
     }, []);
     return (
-        <div className="w-screen h-[300vh]">
+        <div className="w-screen h-[500vh]">
         <div id="gradient" className="w-screen h-screen">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
             <div id="gradient" className={`size-10 rounded-full`} 
@@ -156,7 +156,7 @@ export default function Main(){
                 opacity: '70%',
             }}/> */}
             {showContent && 
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center w-screen h-screen overflow-hidden">
                 <div className="mockup-browser bg-base-300 w-[70%] h-[70%] shadow-2xl" style={{position: 'fixed', transform: `scale(${scaleFactor})` }} data-aos="zoom-out" data-aos-duration="500" data-aos-easing="linear">
                     <div className="mockup-browser-toolbar">
                         <div className="input">https://dongminlim/resume.com</div>
@@ -185,10 +185,10 @@ export default function Main(){
             </div>
             }
         </div>
-        <div id="introduce">
+        <div id="introduce" className="w-screen h-screen">
             { showIntroduce && <Introduce/> }
         </div>
-        <div id="tech">
+        <div id="tech" className="">
             { showTech && <Tech/> }
         </div>
         <div id="thunder">

@@ -7,7 +7,7 @@ function App() {
     AOS.init();
   })
   return (
-    <div className='overflow-x-hidden w-screen'>
+    <div className='overflow-x-hidden'>
       <Main/>
     </div>
   )
