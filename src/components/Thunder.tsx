@@ -14,11 +14,11 @@ export default function Thunder() {
         const scene = new THREE.Scene();
 
         const camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 10;
+        camera.position.z = 0;
         cameraRef.current = camera;
 
         const renderer = new THREE.WebGLRenderer({ canvas: canvas , antialias: true});
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.innerWidth , window.innerHeight);
 
         //3D모델 로드
         const loader = new GLTFLoader();
@@ -26,7 +26,9 @@ export default function Thunder() {
         loader.load('/night_sky_visible_spectrum_monochromatic.glb', function ( gltf ) {
 
             scene.add( gltf.scene );
-            console.log(gltf);
+            // 모델의 위치를 가져와서 카메라의 초기 위치로 설정
+            const modelPosition = gltf.scene.position.clone();
+            camera.position.copy(modelPosition);
             
 
         }, undefined, function ( error ) {
@@ -44,7 +46,8 @@ export default function Thunder() {
         // 스크롤 이벤트 핸들러
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop;
-            cameraRef.current!.position.z = scrollTop * 0.01; // 스크롤 위치에 따라 카메라의 y 위치 변경
+            const scrollAngle = scrollTop * 0.005; // 스크롤 위치에 따라 카메라의 회전 각도 변경
+            cameraRef.current!.rotation.y = scrollAngle;
         };
 
         // 스크롤 이벤트 리스너 등록
@@ -58,7 +61,7 @@ export default function Thunder() {
     
     
     return (
-        <div className='w-screen h-screen'>
+        <div className='w-screen'>
             <canvas ref={canvasRef}/>
         </div>
     )
