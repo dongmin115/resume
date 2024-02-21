@@ -1,0 +1,11 @@
+Model Information:
+* title:	React logo
+* source:	https://sketchfab.com/3d-models/react-logo-76174ceeba96487f9863f974636f641e
+* author:	xenadus (https://sketchfab.com/xenadus)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "React logo" (https://sketchfab.com/3d-models/react-logo-76174ceeba96487f9863f974636f641e) by xenadus (https://sketchfab.com/xenadus) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
