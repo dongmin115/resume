@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
 import Tech from "./Tech";
-import Thunder from "./Thunder";
+import Thunder from "./Three";
 
 export default function Main(){
 

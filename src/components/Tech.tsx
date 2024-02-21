@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Thunder from "./Thunder";
+import Three from "./Three";
 
 export default function Tech() {
     useEffect(() => {
@@ -61,7 +61,7 @@ export default function Tech() {
     },[])
     return (
         <div className="w-screen h-screen overflow-hidden bg-transparent">
-            <Thunder />
+            <Three />
             <canvas id="tech_canvas" className="w-full h-full inset-0 -z-10 fixed" />
         </div>);
 }

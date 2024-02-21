@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-export default function Thunder() {
+export default function Three() {
     
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -81,6 +81,6 @@ export default function Thunder() {
     
     
     return (
-        <canvas ref={canvasRef}/>
+        <canvas className='fixed z-10 inset-0' ref={canvasRef}/>
     )
 }
