@@ -107,12 +107,12 @@ export default function Main(){
                     setShowTech(false);
                     setShowThunder(false);
                 } else if (entry.target.id === 'gradient' && !entry.isIntersecting) {
-                    // introduce가 화면에 보일 때
+                    // gradient가 화면에서 사라질 때
                     setShowContent(false);
                     setShowIntroduce(true);
                     setShowTech(true);
                     setShowThunder(true);
-                } 
+                }
             });
         });
     
@@ -190,9 +190,6 @@ export default function Main(){
         </div>
         <div id="tech" className="">
             { showTech && <Tech/> }
-        </div>
-        <div id="thunder">
-            { showThunder && <Thunder/> }
         </div>
         </div>
     )   

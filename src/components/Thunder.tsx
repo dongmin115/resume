@@ -13,7 +13,7 @@ export default function Thunder() {
 
         const scene = new THREE.Scene();
 
-        const camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 0;
         cameraRef.current = camera;
 
@@ -47,6 +47,7 @@ export default function Thunder() {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop;
             const scrollAngle = scrollTop * 0.005; // 스크롤 위치에 따라 카메라의 회전 각도 변경
+            cameraRef.current!.rotation.x = scrollAngle;
             cameraRef.current!.rotation.y = scrollAngle;
         };
 
@@ -61,8 +62,8 @@ export default function Thunder() {
     
     
     return (
-        <div className='w-screen'>
-            <canvas ref={canvasRef}/>
-        </div>
+        <>
+        <canvas ref={canvasRef}/>
+        </>
     )
 }
