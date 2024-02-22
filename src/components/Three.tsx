@@ -30,7 +30,7 @@ export default function Three() {
             // 모델의 위치를 가져와서 카메라의 초기 위치로 설정
             const modelPosition = gltf.scene.position.clone();
             camera.position.copy(modelPosition);
-            camera.position.z = 10;
+            camera.position.z = 15;
             
 
         }, undefined, function ( error ) {
@@ -81,6 +81,6 @@ export default function Three() {
     
     
     return (
-        <canvas className='fixed z-10 inset-0' ref={canvasRef}/>
+        <canvas ref={canvasRef}/>
     )
 }

@@ -11,7 +11,7 @@ export default function Main(){
     const [showContent,setShowContent] = useState(true);
     const [showIntroduce, setShowIntroduce] = useState(false);
     const [showTech, setShowTech] = useState(false);
-    const [showThunder, setShowThunder] = useState(false);
+    const [isfixed, setIsFixed] = useState(false);
 
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
@@ -95,7 +95,6 @@ export default function Main(){
         const gradient = document.getElementById('gradient');
         const introduce = document.getElementById('introduce');
         const tech = document.getElementById('tech');
-        const thunder = document.getElementById('thunder');
     
         // Intersection Observer 콜백 함수
         var observer = new IntersectionObserver((entries) => {
@@ -104,14 +103,15 @@ export default function Main(){
                     // gradient가 화면에 보일 때
                     setShowContent(true);
                     setShowIntroduce(false);
-                    setShowTech(false);
-                    setShowThunder(false);
                 } else if (entry.target.id === 'gradient' && !entry.isIntersecting) {
                     // gradient가 화면에서 사라질 때
                     setShowContent(false);
                     setShowIntroduce(true);
                     setShowTech(true);
-                    setShowThunder(true);
+                } 
+                if(entry.target.id === 'tech' && entry.intersectionRatio > 0.95){
+                    setIsFixed(true);
+                    console.log(isfixed);
                 }
             });
         });
@@ -139,7 +139,7 @@ export default function Main(){
             window.removeEventListener('scroll', handleScroll);
             observer.disconnect();
         };
-    }, []);
+    }, [isfixed, scrollPosition]);
     return (
         <div className="w-screen h-[500vh]">
         <div id="gradient" className="w-screen h-screen">        
@@ -188,7 +188,7 @@ export default function Main(){
         <div id="introduce" className="w-screen h-screen">
             { showIntroduce && <Introduce/> }
         </div>
-        <div id="tech" className="">
+        <div id="tech" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
             { showTech && <Tech/> }
         </div>
         </div>
