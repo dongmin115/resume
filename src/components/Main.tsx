@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
 import Tech from "./Tech";
 import Thunder from "./Three";
+import Three from "./Three";
 
 export default function Main(){
 
@@ -94,7 +95,7 @@ export default function Main(){
     useEffect(() => {
         const gradient = document.getElementById('gradient');
         const introduce = document.getElementById('introduce');
-        const tech = document.getElementById('tech');
+        const three = document.getElementById('three');
     
         // Intersection Observer 콜백 함수
         var observer = new IntersectionObserver((entries) => {
@@ -109,9 +110,8 @@ export default function Main(){
                     setShowIntroduce(true);
                     setShowTech(true);
                 } 
-                if(entry.target.id === 'tech' && entry.intersectionRatio > 0.95){
+                if(entry.target.id === 'three' && entry.intersectionRatio > 0.95){
                     setIsFixed(true);
-                    console.log(isfixed);
                 }
             });
         });
@@ -119,7 +119,7 @@ export default function Main(){
         // 각 요소를 주시
         observer.observe(gradient!);
         observer.observe(introduce!);
-        observer.observe(tech!);
+        observer.observe(three!);
     
         // 스크롤 이벤트 핸들러
         function handleScroll() {
@@ -188,8 +188,8 @@ export default function Main(){
         <div id="introduce" className="w-screen h-screen">
             { showIntroduce && <Introduce/> }
         </div>
-        <div id="tech" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
-            { showTech && <Tech/> }
+        <div id="three" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
+            { showTech && <Three/> }
         </div>
         </div>
     )   
