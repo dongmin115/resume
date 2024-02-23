@@ -67,7 +67,7 @@ export default function Three() {
             const scrollTop = document.documentElement.scrollTop;
             const scrollAngle = scrollTop * 0.003; // 스크롤 위치에 따라 카메라의 회전 각도 변경
             // cameraRef.current!.rotation.x = scrollAngle;
-            cameraRef.current!.rotation.y = -scrollAngle;
+            cameraRef.current!.rotation.y = -scrollAngle * 0.1;
         };
 
         // 스크롤 이벤트 리스너 등록
