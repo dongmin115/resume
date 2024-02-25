@@ -52,7 +52,9 @@ export default function Three() {
             console.error( error );
 
         } );
-
+        const light = new THREE.DirectionalLight( 0xF2F5A9, 1 );
+        light.position.set( 80, -150, 10 );
+        scene.add( light );
         function animate() {
             requestAnimationFrame( animate );
             if (reactLogoRef.current) {
