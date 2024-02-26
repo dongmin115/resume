@@ -110,7 +110,7 @@ export default function Main(){
                     setShowIntroduce(true);
                     setShowTech(true);
                 } 
-                if(entry.target.id === 'three' && entry.intersectionRatio > 0.95){
+                if(entry.target.id === 'three' && entry.intersectionRatio > 0.90){
                     setIsFixed(true);
                 }
             });
