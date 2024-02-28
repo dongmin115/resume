@@ -4,7 +4,6 @@ import Three from "./Three";
 
 export default function Main(){
 
-    // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [scaleFactor, setScaleFactor] = useState(1);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [showContent,setShowContent] = useState(true);
@@ -75,20 +74,7 @@ export default function Main(){
         }
         updateGradient();
     },[])
-    //마우스 커서를 따라다님
-    // useEffect(() => {
-    //     const handleMouseMove = (event:any) => {
-    //     setMousePosition({ x: event.clientX, y: event.clientY });
-    //     };
-
-    //     // 이벤트 리스너 등록
-    //     document.addEventListener('mousemove', handleMouseMove);
-
-    //     // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-    //     return () => {
-    //     document.removeEventListener('mousemove', handleMouseMove);
-    //     };
-    // }, []);
+    
     
     useEffect(() => {
         const gradient = document.getElementById('gradient');

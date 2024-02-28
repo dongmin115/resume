@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -8,6 +8,7 @@ export default function Three(props:{isfixed:any, setIsFixed: any}) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
     const reactLogoRef = useRef<THREE.Object3D | null>(null);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         //초기세팅
@@ -87,6 +88,21 @@ export default function Three(props:{isfixed:any, setIsFixed: any}) {
             window.removeEventListener('scroll', handleScroll);
         };
     },[])
+
+    // 마우스 커서를 따라다님
+    useEffect(() => {
+        const handleMouseMove = (event:MouseEvent) => {
+        setMousePosition({ x: event.clientX, y: event.clientY });
+        };
+
+        // 이벤트 리스너 등록
+        document.addEventListener('mousemove', handleMouseMove);
+
+        // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+        return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [mousePosition]);
     
     
     return (
