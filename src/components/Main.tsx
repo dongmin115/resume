@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
-import Tech from "./Tech";
-import Thunder from "./Three";
 import Three from "./Three";
 
 export default function Main(){
@@ -12,7 +10,7 @@ export default function Main(){
     const [showContent,setShowContent] = useState(true);
     const [showIntroduce, setShowIntroduce] = useState(false);
     const [showTech, setShowTech] = useState(false);
-    const [isfixed, setIsFixed] = useState(false);
+    const [isfixed, setIsFixed] = useState<Boolean>(false);
 
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
@@ -189,7 +187,7 @@ export default function Main(){
             { showIntroduce && <Introduce/> }
         </div>
         <div id="three" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
-            { showTech && <Three/> }
+            { showTech && <Three isfixed={isfixed} setIsFixed={setIsFixed}/> }
         </div>
         </div>
     )   

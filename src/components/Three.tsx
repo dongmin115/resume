@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-export default function Three() {
+
+export default function Three(props:{isfixed:any, setIsFixed: any}) {
     
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -67,10 +68,15 @@ export default function Three() {
         // 스크롤 이벤트 핸들러
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const scrollBottom = scrollHeight - scrollTop - clientHeight;
             const scrollAngle = scrollTop * 0.003; // 스크롤 위치에 따라 카메라의 회전 각도 변경
             // cameraRef.current!.rotation.x = scrollAngle;
             cameraRef.current!.rotation.y = -scrollAngle * 0.1;
-            console.log(cameraRef.current!.rotation.y);
+            if(scrollBottom <= 0){
+                props.setIsFixed(false);
+            }
         };
 
         // 스크롤 이벤트 리스너 등록
