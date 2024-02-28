@@ -74,7 +74,7 @@ export default function Three(props:{isfixed:any, setIsFixed: any}) {
             const scrollAngle = scrollTop * 0.003; // 스크롤 위치에 따라 카메라의 회전 각도 변경
             // cameraRef.current!.rotation.x = scrollAngle;
             cameraRef.current!.rotation.y = -scrollAngle * 0.1;
-            if(scrollBottom <= 0){
+            if(scrollBottom <= 0 || scrollTop === 0){
                 props.setIsFixed(false);
             }
         };
