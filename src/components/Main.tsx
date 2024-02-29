@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Introduce from "./Introduce";
 import Three from "./Three";
+import Project from "./Project";
 
 export default function Main(){
 
@@ -174,6 +175,9 @@ export default function Main(){
         </div>
         <div id="three" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
             { showTech && <Three isfixed={isfixed} setIsFixed={setIsFixed}/> }
+        </div>
+        <div>
+            <Project/>
         </div>
         </div>
     )   
