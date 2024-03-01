@@ -11,6 +11,7 @@ export default function Main(){
     const [showIntroduce, setShowIntroduce] = useState(false);
     const [showTech, setShowTech] = useState(false);
     const [isfixed, setIsFixed] = useState<Boolean>(false);
+    const [isShow, setIsShow] = useState<Boolean>(false);
 
     //랜덤으로 색이 바뀌는 그라데이션 효과
     useEffect(()=> {
@@ -81,6 +82,7 @@ export default function Main(){
         const gradient = document.getElementById('gradient');
         const introduce = document.getElementById('introduce');
         const three = document.getElementById('three');
+        const project = document.getElementById('project');
     
         // Intersection Observer 콜백 함수
         var observer = new IntersectionObserver((entries) => {
@@ -98,6 +100,12 @@ export default function Main(){
                 if(entry.target.id === 'three' && entry.intersectionRatio > 0.90){
                     setIsFixed(true);
                 }
+                if(entry.target.id === 'project' && entry.intersectionRatio > 0.5){
+                    setIsShow(true);
+                }
+                else if(entry.target.id === 'project' && entry.intersectionRatio < 0.5){
+                    setIsShow(false);
+                }
             });
         });
     
@@ -105,6 +113,7 @@ export default function Main(){
         observer.observe(gradient!);
         observer.observe(introduce!);
         observer.observe(three!);
+        observer.observe(project!);
     
         // 스크롤 이벤트 핸들러
         function handleScroll() {
@@ -177,7 +186,9 @@ export default function Main(){
             { showTech && <Three isfixed={isfixed} setIsFixed={setIsFixed}/> }
         </div>
         <div>
-            <Project/>
+        <div id="project">
+            { isShow && <Project/> }
+        </div>
         </div>
         </div>
     )   

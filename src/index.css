@@ -4,5 +4,32 @@
 
 .bg-radical-gradient {
     background-image: radial-gradient(circle, #000 1%, transparent 50%);
+}
+
+.box:nth-child(1) {
+    --hue: 165;
+    --saturation: 82.26%;
+    --lightness: 51.37%;
   }
   
+.box:nth-child(2) {
+    --hue: 291.34;
+    --saturation: 95.9%;
+    --lightness: 61.76%;
+}
+  
+.box:nth-child(3) {
+    --hue: 338.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+:not(.overlay) > .box {
+    transition: 400ms background ease;
+    will-change: background;
+}
+
+:not(.overlay) > .box:hover {
+    --lightness: 95%;
+    background: hsla(var(--hsl), 0.1);
+}
