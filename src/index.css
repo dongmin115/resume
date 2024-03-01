@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-radical-gradient {
+    background-image: radial-gradient(circle, #000 1%, transparent 50%);
+  }
+  
