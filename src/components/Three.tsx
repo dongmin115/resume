@@ -95,23 +95,6 @@ export default function Three(props:{isfixed:any, setIsFixed: any}) {
             };
             }
     },[props.isfixed])
-
-    // // 마우스 커서를 따라다님
-    // useEffect(() => {
-    //     const handleMouseMove = (event:MouseEvent) => {
-    //     setMousePosition({ x: event.clientX, y: event.clientY });
-    //     };
-
-    //     // 이벤트 리스너 등록
-    //     document.addEventListener('mousemove', handleMouseMove);
-
-    //     // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-    //     return () => {
-    //     document.removeEventListener('mousemove', handleMouseMove);
-    //     };
-    // }, [mousePosition]);
-    
-    
     
     return (
         <canvas ref={canvasRef}/>
