@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-.main {
+/* .main {
   max-width: 75rem;
   padding: 3em 1.5em;
 }
@@ -140,4 +140,4 @@
 :not(.overlay) > .box:hover {
   --lightness: 95%;
   background: hsla(var(--hsl), 0.1);
-}
+} */

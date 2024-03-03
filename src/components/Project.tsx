@@ -1,64 +1,64 @@
 import { useEffect } from "react";
 
 export default function Project() {
-    useEffect(() => {
-        const overlay = document.querySelector(".overlay") as HTMLElement;
-        if (!overlay) return;
+    // useEffect(() => {
+    //     const overlay = document.querySelector(".overlay") as HTMLElement;
+    //     if (!overlay) return;
 
-        const cardsContainer = document.querySelector(".cards") as HTMLElement;
-        const cards = Array.from(document.querySelectorAll(".box"));
+    //     const cardsContainer = document.querySelector(".cards") as HTMLElement;
+    //     const cards = Array.from(document.querySelectorAll(".box"));
 
-        const applyOverlayMask = (e: any) => {
-            const overlayEl = e.currentTarget;
-            const rect = cardsContainer.getBoundingClientRect();
-            const x = e.pageX - rect.left;
-            const y = e.pageY - rect.top;
+    //     const applyOverlayMask = (e: any) => {
+    //         const overlayEl = e.currentTarget;
+    //         const rect = cardsContainer.getBoundingClientRect();
+    //         const x = e.pageX - rect.left;
+    //         const y = e.pageY - rect.top;
 
-            overlayEl.style.setProperty("--opacity", "1");
-            overlayEl.style.setProperty("--x", `${x}px`);
-            overlayEl.style.setProperty("--y", `${y}px`);
-        };
+    //         overlayEl.style.setProperty("--opacity", "1");
+    //         overlayEl.style.setProperty("--x", `${x}px`);
+    //         overlayEl.style.setProperty("--y", `${y}px`);
+    //     };
 
-        const createOverlayCta = (overlayCard: any, ctaEl: any) => {
-            const overlayCta = document.createElement("div");
-            overlayCta.classList.add("cta");
-            overlayCta.textContent = ctaEl.textContent;
-            overlayCta.setAttribute("aria-hidden", "true");
-            overlayCard.append(overlayCta);
-        };
+    //     const createOverlayCta = (overlayCard: any, ctaEl: any) => {
+    //         const overlayCta = document.createElement("div");
+    //         overlayCta.classList.add("cta");
+    //         overlayCta.textContent = ctaEl.textContent;
+    //         overlayCta.setAttribute("aria-hidden", "true");
+    //         overlayCard.append(overlayCta);
+    //     };
 
-        const observer = new ResizeObserver((entries) => {
-            entries.forEach((entry) => {
-                const cardIndex = cards.indexOf(entry.target);
-                let width = entry.borderBoxSize[0].inlineSize;
-                let height = entry.borderBoxSize[0].blockSize;
+    //     const observer = new ResizeObserver((entries) => {
+    //         entries.forEach((entry) => {
+    //             const cardIndex = cards.indexOf(entry.target);
+    //             let width = entry.borderBoxSize[0].inlineSize;
+    //             let height = entry.borderBoxSize[0].blockSize;
 
-                if (cardIndex >= 0) {
-                    const cardElement = overlay.children[cardIndex] as HTMLElement;
-                    cardElement.style.width = `${width}px`;
-                    cardElement.style.height = `${height}px`;
-                }
-            });
-        });
+    //             if (cardIndex >= 0) {
+    //                 const cardElement = overlay.children[cardIndex] as HTMLElement;
+    //                 cardElement.style.width = `${width}px`;
+    //                 cardElement.style.height = `${height}px`;
+    //             }
+    //         });
+    //     });
 
-        const initOverlayCard = (cardEl: any) => {
-            const overlayCard = document.createElement("div");
-            overlayCard.classList.add("box");
-            createOverlayCta(overlayCard, cardEl.lastElementChild);
-            overlay.append(overlayCard);
-            observer.observe(cardEl);
-        };
+    //     const initOverlayCard = (cardEl: any) => {
+    //         const overlayCard = document.createElement("div");
+    //         overlayCard.classList.add("box");
+    //         createOverlayCta(overlayCard, cardEl.lastElementChild);
+    //         overlay.append(overlayCard);
+    //         observer.observe(cardEl);
+    //     };
 
-        cards.forEach(initOverlayCard);
-        document.body.addEventListener("pointermove", applyOverlayMask);
-        return () => {
-            document.body.removeEventListener("pointermove", applyOverlayMask);
-        };
-    }, []);
+    //     cards.forEach(initOverlayCard);
+    //     document.body.addEventListener("pointermove", applyOverlayMask);
+    //     return () => {
+    //         document.body.removeEventListener("pointermove", applyOverlayMask);
+    //     };
+    // }, []);
 
     return (
         <div className="w-screen h-screen">
-            <main className="main flow">
+            {/* <main className="main flow">
                 <h1 className="main__heading">Pricing</h1>
                 <div className="main__cards cards">
                     <div className="cards__inner">
@@ -98,7 +98,7 @@ export default function Project() {
 
                     <div className="overlay cards__inner"></div>
                 </div>
-            </main>
+            </main> */}
         </div>
     );
 }
