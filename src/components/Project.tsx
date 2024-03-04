@@ -39,10 +39,14 @@ export default function Project() {
     });
 
     const initOverlayCard = (cardEl: HTMLElement) => {
-      const overlayCard = document.createElement("div");
-      overlayCard.classList.add("box");
-      createOverlayCta(overlayCard, cardEl.lastElementChild as HTMLElement);
-      overlay!.append(overlayCard);
+        const overlayCard = document.createElement("div");
+        overlayCard.classList.add("box");
+        createOverlayCta(overlayCard, cardEl.lastElementChild as HTMLElement);
+        // overlay 요소에 자식 요소가 없을 때만 자식 요소를 추가합니다.
+        if (overlay!.children.length < 3) {
+        overlay!.append(overlayCard);
+    }
+
       observer.observe(cardEl);
     };
     
@@ -55,8 +59,8 @@ export default function Project() {
   }, []);
 
   return (
-    <main className="main flow">
-      <h1 className="main__heading">Pricing</h1>
+    <main className="main flow bg-[#212121]">
+      <h1 className="main__heading">Project</h1>
       <div className="main__boxes boxes">
         <div className="boxes__inner">
           <div className="boxes__box box">

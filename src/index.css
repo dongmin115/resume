@@ -3,14 +3,17 @@
 @tailwind utilities;
 
 .main {
-    max-width: 75rem;
-    padding: 3em 1.5em;
+    width: 100vw;
+    height: 100vh;
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
   
   .main__heading {
     font-weight: 600;
     font-size: 2.25em;
-    margin-bottom: 0.75em;
     text-align: center;
     color: #eceff1;
   }
