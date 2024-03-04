@@ -33,7 +33,9 @@ export default function Project() {
 
         if (cardIndex >= 0) {
             const overlayChild = overlay!.children[cardIndex] as HTMLDivElement;
-            overlayChild.setAttribute("style", `width: ${width}px; height: ${height}px;`);
+            if (overlayChild) {
+                overlayChild.setAttribute("style", `width: ${width}px; height: ${height}px;`);
+            }
         }
       });
     });
