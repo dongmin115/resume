@@ -65,7 +65,7 @@ export default function Project() {
       <h1 className="main__heading">Project</h1>
       <div className="main__boxes boxes">
         <div className="boxes__inner">
-            //1번째 프로젝트
+        {/* 1번째 프로젝트 */}
           <div className="boxes__box box">
             <div className="flex flex-row items-center justify-between">
             <h2 className="box__heading">Clip Tab!</h2>
@@ -79,7 +79,7 @@ export default function Project() {
             </ul>
             <a href="#basic" className="box__cta cta">Get Started</a>
           </div>
-            //2번째 프로젝트
+        {/* 2번째 프로젝트 */}
           <div className="boxes__box box">
             <h2 className="box__heading">Second Project</h2>
             <p className="box__price">개발기간</p>
@@ -90,7 +90,7 @@ export default function Project() {
             </ul>
             <a href="#pro" className="box__cta cta">Upgrade to Pro</a>
           </div>
-            //3번째 프로젝트
+        {/* 3번째 프로젝트 */}
           <div className="boxes__box box">
             <h2 className="box__heading">Third Project</h2>
             <p className="box__price">개발기간</p>
