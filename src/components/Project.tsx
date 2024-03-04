@@ -65,19 +65,24 @@ export default function Project() {
       <h1 className="main__heading">Project</h1>
       <div className="main__boxes boxes">
         <div className="boxes__inner">
+            //1번째 프로젝트
           <div className="boxes__box box">
-            <h2 className="box__heading">Basic</h2>
-            <p className="box__price">$9.99</p>
+            <div className="flex flex-row items-center justify-between">
+            <h2 className="box__heading">Clip Tab!</h2>
+            <h1 className="box_bullets">2023.12 ~ 2024.02</h1>
+            </div>
+            <p className="box__price">유용한 북마크 관리, url 이미지 추출 익스텐션</p>
             <ul role="list" className="box__bullets flow">
-              <li>Access to standard workouts and nutrition plans</li>
-              <li>Email support</li>
+                <li>프로젝트에 기여하고 사용한 기술 설명</li>
+                <li><a href="https://github.com/2023-WinterBootcamp-Team-M">Github</a></li>
+                <li><a href="https://medium.com/@vitash1215/2023-siliconvalley-winter-bootcamp-cliptab-korean-755b3448266b">Medium</a></li>
             </ul>
             <a href="#basic" className="box__cta cta">Get Started</a>
           </div>
-
+            //2번째 프로젝트
           <div className="boxes__box box">
-            <h2 className="box__heading">Pro</h2>
-            <p className="box__price">$19.99</p>
+            <h2 className="box__heading">Second Project</h2>
+            <p className="box__price">개발기간</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to advanced workouts and nutrition plans</li>
               <li>Priority Email support</li>
@@ -85,10 +90,10 @@ export default function Project() {
             </ul>
             <a href="#pro" className="box__cta cta">Upgrade to Pro</a>
           </div>
-
+            //3번째 프로젝트
           <div className="boxes__box box">
-            <h2 className="box__heading">Ultimate</h2>
-            <p className="box__price">$29.99</p>
+            <h2 className="box__heading">Third Project</h2>
+            <p className="box__price">개발기간</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to all premium workouts and nutrition plans</li>
               <li>24/7 Priority support</li>
