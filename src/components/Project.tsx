@@ -3,7 +3,6 @@ import { useEffect } from "react";
 export default function Project() {
   useEffect(() => {
     const cardsContainer = document.querySelector(".boxes") as HTMLElement; 
-    const cardsContainerInner = document.querySelector(".boxes__inner");
     const cards = Array.from(document.querySelectorAll(".box"));
     const overlay = document.querySelector(".overlay");
 
