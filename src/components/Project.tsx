@@ -73,10 +73,9 @@ export default function Project() {
             <p className="box__price">유용한 북마크 관리, url 이미지 추출 익스텐션</p>
             <ul role="list" className="box__bullets flow">
                 <li>프로젝트에 기여하고 사용한 기술 설명</li>
-                <li><a href="https://github.com/2023-WinterBootcamp-Team-M">Github</a></li>
                 <li><a href="https://medium.com/@vitash1215/2023-siliconvalley-winter-bootcamp-cliptab-korean-755b3448266b">Medium</a></li>
             </ul>
-            <a href="#basic" className="box__cta cta">Get Started</a>
+            <a href="https://github.com/2023-WinterBootcamp-Team-M" className="box__cta cta">GitHub</a>
           </div>
         {/* 2번째 프로젝트 */}
           <div className="boxes__box box">
