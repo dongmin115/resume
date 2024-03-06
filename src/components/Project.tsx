@@ -80,7 +80,7 @@ export default function Project() {
           </div>
         {/* 2번째 프로젝트 */}
           <div className="boxes__box box">
-            <h2 className="box__heading">Second Project</h2>
+            <h2 className="box__heading">졸업작품</h2>
             <p className="box__price">개발기간</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to advanced workouts and nutrition plans</li>
@@ -91,7 +91,7 @@ export default function Project() {
           </div>
         {/* 3번째 프로젝트 */}
           <div className="boxes__box box">
-            <h2 className="box__heading">Third Project</h2>
+            <h2 className="box__heading">테커 상반기 프로젝트</h2>
             <p className="box__price">개발기간</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to all premium workouts and nutrition plans</li>
