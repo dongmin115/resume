@@ -136,7 +136,7 @@ export default function Main(){
     }, [isfixed, scrollPosition]);
     return (
         <div className="w-screen h-[500vh]">
-        <div id="gradient" className="w-screen h-screen">        
+        <div id="gradient" className="w-screen h-[120vh]">        
             {/* 마우스 따라다니는 그라데이션 애니메이션
             <div id="gradient" className={`size-10 rounded-full`} 
             style={{
@@ -179,7 +179,7 @@ export default function Main(){
             </div>
             }
         </div>
-        <div id="introduce" className="w-screen h-screen">
+        <div id="introduce" className="w-screen h-[110vh]">
             { showIntroduce && <Introduce/> }
         </div>
         <div id="three" className={`w-screen h-screen ${isfixed ? 'fixed inset-0' : ''}`}>
