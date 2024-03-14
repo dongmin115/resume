@@ -94,7 +94,7 @@ export default function Project() {
           {/* 2번째 프로젝트 */}
           <div className="boxes__box box">
             <h2 className="box__heading">DreamVault</h2>
-            <p className="box__price">개발기간</p>
+            <p className="box__price">AI가 생성한 음악 저장소</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to advanced workouts and nutrition plans</li>
               <li>Priority Email support</li>
@@ -107,7 +107,7 @@ export default function Project() {
           {/* 3번째 프로젝트 */}
           <div className="boxes__box box">
             <h2 className="box__heading">On My Desk</h2>
-            <p className="box__price">개발기간</p>
+            <p className="box__price">데스크탑 셋업 공유 플랫폼</p>
             <ul role="list" className="box__bullets flow">
               <li>Access to all premium workouts and nutrition plans</li>
               <li>24/7 Priority support</li>
