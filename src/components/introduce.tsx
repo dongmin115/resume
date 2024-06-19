@@ -37,61 +37,69 @@ export default function Introduce() {
             Introduce
           </h1>
           <div
-            className="divider"
+            className="divider w-[80%]"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="200"
           />
-          <div className="mb-2 flex flex-col space-y-2">
+          <div className="mb-2 flex flex-col space-y-2 w-[80%]">
             <h1
               className="text-2xl mb-4"
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-delay="300"
             >
-              안녕하세요, 웹 프론트엔드 개발자 임동민입니다.
+              안녕하세요, 신입 프론트엔드 개발자 임동민입니다.
             </h1>
+
             <p
-              className="text-md"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="400"
-            >
-              신입 프론트엔드 개발자입니다.
-            </p>
-            <p
-              className="text-md"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="500"
-            >
-              개발자 직무를 선택한 이유
-            </p>
-            <p
-              className="text-md"
+              className="text-xl"
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-delay="600"
             >
-              개발자로써의 성격적 장점 어필
+              제가 하는 일이 무엇이든 잘하지 못하는 것을 싫어하기 때문에,
+              무엇이든지 잘해지기 위해서 스스로 연구하고 노력하여 과거의 모습과
+              비교하여 성장했다고 느낄때 성취감을 얻는 성격을 가지고 있습니다.
             </p>
             <p
-              className="text-md"
+              className="text-xl"
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-delay="700"
             >
-              이루고싶은 것
+              개발자로서 문제를 해결할 때 최선의 문제 해결 방법을 선택하는 것이
+              중요하다고 생각하기 때문에, 새로운 기술을 학습하고 적용하는 데
+              적극적입니다.
             </p>
             <p
-              className="text-md"
+              className="text-xl"
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-delay="800"
             >
-              현재하고있는 노력
+              동료들과 지속적으로 지식을 공유하고 피드백을 주고받으며 개발
+              프로세스를 개선하기 위해 노력합니다.
             </p>
           </div>
+          <p
+            className="text-xl mt-auto"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <div className="divider w-[80%]">Summary</div>
+            기획부터 배포까지 개발의 모든 과정에 직접 참여하고, 다양한 팀원들과
+            협업하여 프로젝트를 진행한 경험이 있습니다.
+            <p className="my-2">
+              코드의 유지 보수성 및 확장성을 고려한 공통 컴포넌트 설계에
+              집중하며, 이를 통해 팀 전체의 개발 효율성을 향상시킵니다.
+            </p>
+            <p className="my-2">
+              성능 최적화를 위해 다양한 문제 해결 방안을 분석하고 최선의 방법을
+              선별하여 적용하는 데 집중적으로 노력합니다.
+            </p>
+          </p>
           <ul
             className="flex flex-col space-y-1 mt-auto w-fit"
             data-aos="fade-up"
