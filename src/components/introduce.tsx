@@ -16,8 +16,12 @@ export default function Introduce() {
           data-aos-duration="1000"
           data-aos-delay="100"
         >
-          <figure>
-            <img src="https://i.ibb.co/LQ05mt0/IMG-3247.jpg" alt="profile" />
+          <figure className="w-full">
+            <img
+              src="https://i.ibb.co/xzMdmFY/IMG-3247.jpg"
+              alt="profile"
+              className="w-full"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Front-End Engineer</h2>
